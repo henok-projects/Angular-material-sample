@@ -1,0 +1,84 @@
+<div
+  class="container"
+  fxLayout="row"
+  fxLayout.sm="column"
+  fxLayout.xs="column"
+  fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+>
+  <div fxFlex="40" *ngIf="dish">
+    <div fxFlex>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h3>
+              <strong>{{ dish.name | uppercase }}</strong>
+            </h3>
+          </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ dish.image }}" alt="{{ dish.name }}" />
+        <mat-card-content>
+          <p>{{ dish.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button [routerLink]="['/dishdetail', privous]">
+            <span class="fa fa-chevron-left fa-lg"></span>
+          </button>
+
+          <button mat-button (click)="goBack()">BACK</button>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+
+          <span class="flex-spacer"></span>
+
+          <button mat-button [routerLink]="['/dishdetail', next]">
+            <span class="fa fa-chevron-right fa-lg"></span>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <div fxFlex="40" fy="0" *ngIf="dish">
+    <div fxFlex>
+      <mat-list>
+        <mat-card>
+          <mat-card-content>
+            <h3><b>Comments</b></h3>
+            <mat-list-item *ngFor="let dishes of dish.comments">
+              <p mat-line>{{ dishes.comment }}</p>
+              <p mat-line>{{ dishes.rating }} Stars</p>
+              <p mat-line>
+                <span> -- {{ dishes.author }} {{ dishes.date | date }}</span>
+              </p>
+            </mat-list-item>
+          </mat-card-content>
+        </mat-card>
+      </mat-list>
+    </div>
+    <div fxFlex [hidden]="dish">
+      <mat-spinner></mat-spinner>
+      <h4>Loading ... Please Wait!</h4>
+    </div>
+  </div>
+</div>
+
+<!-- <div fxFlex *ngIf="dish of dishes">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>Comments</h3>
+        </mat-card-title>
+      </mat-card-header>
+       <img mat-card-image src={{selectedDish.image}} alt={{selectedDish.name}}>
+      <mat-card-content>
+        <p>{{dish.comments}}
+        </p>
+      </mat-card-content>
+       <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div> -->

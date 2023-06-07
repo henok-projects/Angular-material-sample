@@ -1,0 +1,117 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 710px;
+  height: 365px !important;
+}
+
+.outline-fields-container {
+  display: inline-block;
+}
+
+.forms {
+  width: 200px;
+  margin-left: 20px;
+}
+.field-container {
+  display: inline-flex;
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 45px !important;
+    width: 200px;
+    flex: auto;
+  }
+
+  ::ng-deep
+    .mat-mdc-text-field-wrapper.mdc-text-field--outlined
+    .mat-mdc-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  ::ng-deep .mdc-floating-label {
+    padding-bottom: 10px;
+  }
+  ::ng-deep .mat-form-field-flex {
+    display: inline-flex;
+    align-items: baseline;
+    box-sizing: border-box;
+    width: 210px;
+  }
+}
+
+.field-container2 {
+  display: inline-flex;
+  margin-top: 20px;
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 45px !important;
+    width: 210px;
+    flex: auto;
+  }
+
+  ::ng-deep
+    .mat-mdc-text-field-wrapper.mdc-text-field--outlined
+    .mat-mdc-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  ::ng-deep .mdc-floating-label {
+    padding-bottom: 10px;
+  }
+
+  ::ng-deep .mat-form-field-flex {
+    display: inline-flex;
+    align-items: baseline;
+    box-sizing: border-box;
+    width: 210px;
+  }
+}
+
+.mat-dialog-content {
+  margin-top: 20px;
+  overflow: unset;
+}
+
+.title {
+  margin-left: 10px;
+  font-size: 26px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 900;
+}
+.divider {
+  margin-top: -10px;
+  width: 98%;
+  margin-left: 1%;
+}
+
+.info {
+  margin-left: 1%;
+  width: 700px;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 500;
+}
+
+.actions-container {
+  margin-left: 400px;
+  margin-top: 16px;
+}
+
+.button {
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  border: 2px solid black !important;
+}
+
+.button:hover {
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #9575cd;
+  border-style: 1px solide #9575cd;
+  color: #ffffff;
+}

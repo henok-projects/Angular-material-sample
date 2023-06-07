@@ -1,0 +1,108 @@
+<div class="container">
+  <h3 mat-dialog-title class="title">Delete Employee</h3>
+  <span class="divider"><hr /></span>
+  <div class="info">
+    <p>
+      An employee information form is an important human resources (HR) document
+      that every new employee must complete and maintain It contains important
+      personal information about each employee.
+    </p>
+  </div>
+  <form class="mat-dialog-content" [formGroup]="form">
+    <div class="outline-fields-container">
+      <div class="field-container">
+        <div class="forms">
+          <mat-form-field appearance="outline" [style.width.px]="327">
+            <mat-label>Id</mat-label>
+            <input
+              matInput
+              class="form-control"
+              formControlName="id"
+              name="id"
+            />
+          </mat-form-field>
+        </div>
+        <div class="forms">
+          <mat-form-field appearance="outline" [style.width.px]="327">
+            <mat-label>Full Name</mat-label>
+            <input
+              matInput
+              class="form-control"
+              formControlName="fullName"
+              name="fullName"
+            />
+          </mat-form-field>
+        </div>
+        <div style="margin-left: 20px; width: 200px">
+          <mat-form-field appearance="outline" [style.width.px]="327">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              class="form-control"
+              formControlName="email"
+              name="email"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div></div>
+      <div class="field-container2">
+        <div style="margin-left: 20px; width: 200px">
+          <mat-form-field appearance="outline" [style.width.px]="327">
+            <mat-label>Salary</mat-label>
+            <input
+              matInput
+              class="form-control"
+              formControlName="salary"
+              name="salary"
+            />
+          </mat-form-field>
+        </div>
+        <div style="margin-left: 20px; width: 200px">
+          <mat-form-field appearance="outline" [style.width.px]="327">
+            <mat-label>Experiance</mat-label>
+            <input
+              matInput
+              class="form-control"
+              formControlName="experiance"
+              name="experiance"
+            />
+          </mat-form-field>
+        </div>
+        <div style="margin-left: 20px; width: 200px">
+          <mat-form-field appearance="outline" [style.width.px]="327">
+            <mat-label>Department</mat-label>
+            <input
+              matInput
+              class="form-control"
+              formControlName="department"
+              name="department"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div mat-dialog-actions class="actions-container">
+      <button
+        mat-button
+        type="submit"
+        [mat-dialog-close]="1"
+        (click)="deleteItem()"
+        title="Delete Item"
+        class="button"
+      >
+        Delete
+      </button>
+      <button
+        mat-button
+        (click)="close()"
+        tabindex="-1"
+        title="Close modal"
+        class="button"
+      >
+        Close
+      </button>
+    </div>
+  </form>
+</div>

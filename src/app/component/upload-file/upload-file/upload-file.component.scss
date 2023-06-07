@@ -1,0 +1,36 @@
+.table-div {
+  margin-top: 40px;
+}
+.mat-elevation-z8 {
+  width: 1000px;
+  height: 42px;
+  box-shadow: 0 0 0 0;
+  background-color: #ffff;
+}
+
+.upload-file {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 170px;
+  padding: 14px 16px 2px 16px;
+  border: 1px dashed #adadad;
+  background-color: #ffff;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.fileChoose {
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(0, 94, 162);
+}
+
+.field-div {
+  .mat-form .field-appearance-outline .mat-form-field-wrapper {
+    width: 26px !important;
+    height: 42px;
+    border-radius: 5px;
+  }
+}

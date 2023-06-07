@@ -1,0 +1,154 @@
+<div>
+  <form [formGroup]="documentFormGroup">
+    <div style="margin-bottom: 15px">
+      <!-- <label class="file-selection-label"
+        >File selection<fa-icon
+          class="info-icon"
+          [faInfoCircle]
+          triggers="click"
+          tooltipClass="tooltipcls"
+          [ngbTooltip]="tipContent"
+        ></fa-icon
+      ></label> -->
+      <div class="upload-file" appDrag (files)="handleFileInput($event)">
+        <span>
+          Drag one file at a time.
+          <br />
+          <span class="fileChoose" (click)="fileInput.click()">
+            Choose from folder
+            <input
+              #fileInput
+              name="fileName"
+              onclick="this.value == null"
+              (change)="handleFileInput($event)"
+              type="file"
+              style="display: none"
+            /> </span
+          ><br /><br />
+          <span style="font-weight: 500px">{{
+            fileToUpload || fileFromDragDrop
+          }}</span>
+        </span>
+      </div>
+      <div style="margin-top: 5px">
+        <!-- <mat-error
+          *ngIf="
+            documentFormGroup.controls[fileName].errors?.pattern &&
+            validFileType
+          "
+        > -->
+        File must start with a letter (a-z) or a number (0-9).
+        <!-- </mat-error> -->
+        <!-- <mat-error
+          *ngIf="
+            documentFormGroup.controls[fileName].errors?.maxLength &&
+            validFileType
+          "
+        >
+          file can not be more than 32 characters in length.
+        </mat-error> -->
+        <!-- <mat-error *ngIf="validFileType">
+          file name mustend with *.htm, *.txt, or *.pdf extensions.
+        </mat-error> -->
+      </div>
+    </div>
+    <div class="form-containers field-div">
+      <div class="form">
+        <div class="disable-fields" style="display: block">
+          <br />
+          <mat-label class="label">Document Type</mat-label><br />
+          <mat-form-field appearance="outline">
+            <input
+              matInput
+              #inputstate
+              class="form-control"
+              placeholder="experiance"
+              formControlName="documentType"
+              name="documentType"
+              pattern="^[0-9]*$"
+              required
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <br />
+    </div>
+
+    <div class="form-containers">
+      <span class="matInput" style="display: block">
+        <label for="">file description (optional)</label><br />
+        <textarea
+          type="text"
+          class="fileDescription"
+          name="fileDescription"
+          formControlName="fileDescription"
+        ></textarea>
+        <span class="inputLength">
+          {{ documentFormGroup.controls["fileDescription"].value?.length }} /
+          255
+        </span>
+      </span>
+    </div>
+
+    <div class="validate-btn">
+      <!-- <button [disabled]="documentFormGroup.invalid || !validFilerype" style="width: 100px;height:50px; background-color:darkcyan" (click)="documentFormGroup.invalid || !validFilerype ? disabl"></button> -->
+      <button
+        style="width: 100px; height: 20px; background-color: darkcyan"
+        (click)="addToTable()"
+      >
+        Add File
+      </button>
+    </div>
+  </form>
+  <div class="table-div">
+    <table mat-table [dataSource]="tableDataSource" class="mat-elevation-z8">
+      <!-- Checkbox Column -->
+      <!-- <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox
+              (change)="$event ? masterToggle() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+              [aria-label]="checkboxLabel()"
+            >
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)"
+              [aria-label]="checkboxLabel(row)"
+            >
+            </mat-checkbox>
+          </td>
+        </ng-container> -->
+
+      <!--  file type Column -->
+      <ng-container matColumnDef="fileName">
+        <th mat-header-cell *matHeaderCellDef>File Name</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.get("fileName").value }}
+        </td>
+      </ng-container>
+
+      <!-- file desc Column  -->
+      <ng-container matColumnDef="documentType">
+        <th mat-header-cell *matHeaderCellDef>document type</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.get("documentType").value }}
+        </td>
+      </ng-container>
+
+      <!-- file desc Column  -->
+      <ng-container matColumnDef="fileDescription">
+        <th mat-header-cell *matHeaderCellDef>File description</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.get("fileDescription").value }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="main-container">
+  <div class="manag-table flex-space-between">
+    <div class="filter">
+      <mat-form-field appearance="outline">
+        <mat-label>Filter</mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Ex. Mia"
+          #input
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="add-action">
+      <button class="button" (click)="openDialogAddEmployee()">
+        Add Employee
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8 mat-cell"
+      matSort
+    >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- firstName -->
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Full name</th>
+        <td mat-cell *matCellDef="let element">{{ element.fullName }}</td>
+      </ng-container>
+
+      <!-- lastName-->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
+      <!-- salary -->
+      <ng-container matColumnDef="salary">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>salary</th>
+        <td mat-cell *matCellDef="let element">{{ element.salary }}</td>
+      </ng-container>
+
+      <!-- experiance -->
+      <ng-container matColumnDef="experiance">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>experiance</th>
+        <td mat-cell *matCellDef="let element">{{ element.experiance }}</td>
+      </ng-container>
+
+      <!-- Department -->
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>department</th>
+        <td mat-cell *matCellDef="let element">{{ element.department }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="mat-cell-header">
+          Actions
+        </th>
+
+        <td mat-cell *matCellDef="let element" class="mat-cell">
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="clickMenu"
+            color="primary"
+            [matMenuTriggerData]="{ element: element }"
+            title="select to view more actions"
+          >
+            <mat-icon aria-label="menu">more_horiz</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <div class="pagination">
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"
+      ></mat-paginator>
+    </div>
+  </div>
+  <mat-menu #clickMenu="matMenu" yPosition="below" xPosition="before">
+    <ng-template matMenuContent let-aliasMenuItem="element">
+      <div
+        class="menu-items"
+        (click)="EmployeeAction('edit', aliasMenuItem)"
+        title="Edit Employee"
+      >
+        <span class="mat-menu-item">Edit Employee</span>
+      </div>
+      <div
+        class="menu-items"
+        (click)="EmployeeAction('delete', aliasMenuItem)"
+        title="Delete Employee"
+      >
+        <span class="mat-menu-item">Delete Employee</span>
+      </div>
+    </ng-template>
+  </mat-menu>
+</div>

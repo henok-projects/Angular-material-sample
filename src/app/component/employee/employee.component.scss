@@ -1,0 +1,163 @@
+.manag-table {
+  display: flex;
+  margin-left: 8%;
+  width: 82.8%;
+}
+
+.filter {
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 45px !important;
+    flex: auto;
+  }
+
+  ::ng-deep
+    .mat-mdc-text-field-wrapper.mdc-text-field--outlined
+    .mat-mdc-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  ::ng-deep .mdc-floating-label {
+    padding-bottom: 10px;
+  }
+}
+
+.add-action {
+  position: relative;
+  top: 33px !important;
+}
+
+.table-data:hover {
+  background-color: aqua;
+}
+
+.button {
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  border-style: 1px solide #0000;
+}
+.button:hover {
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: rgb(2, 2, 84);
+  border-style: 1px solide #0000;
+  color: #ffffff;
+}
+
+table {
+  width: 90%;
+}
+
+.table-container {
+  // width: 100%;
+  margin-left: 8%;
+}
+
+.main-container {
+  margin-bottom: 125px;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 220px !important;
+  margin-left: 2px;
+}
+
+.manag-table {
+  display: flex;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.mat-cell-header {
+  margin-top: 55px;
+}
+
+.pagination {
+  margin-top: 10px;
+  margin-right: 20%;
+}
+
+.mat-cell {
+  margin-top: 5px;
+}
+
+.filter {
+  position: relative;
+  top: 19px;
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 30px !important;
+    flex: auto;
+  }
+
+  ::ng-deep
+    .mat-mdc-text-field-wrapper.mdc-text-field--outlined
+    .mat-mdc-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  ::ng-deep .mdc-floating-label {
+    padding-bottom: 10px;
+  }
+  ::ng-deep .mat-form-field-flex {
+    display: inline-flex;
+    align-items: baseline;
+    box-sizing: border-box;
+    width: 210px;
+  }
+}
+
+.add-action {
+  top: 37px !important;
+}
+
+.button {
+  width: 110px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: white;
+  border-style: 1px solide #0000;
+}
+.button:hover {
+  width: 110px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #9575cd;
+  border-style: 1px solide #0000;
+  color: #ffffff;
+}
+
+tr > th {
+  background: #9575cd;
+  font-size: 16px;
+  color: white;
+}
+
+tr:hover {
+  background: #eee6fb;
+}
+
+tr .td:hover {
+  padding-left: 1px solide #0000;
+}
+
+.mat-sort-header-arrow > * {
+  font-size: 16px;
+  color: white;
+}
+
+.menu-items {
+  margin: 2px 8px 4px 7px;
+}
+
+.menu-items:hover {
+  background-color: #9575cd;
+  margin: 2px 8px 4px 7px;
+}
